@@ -1,0 +1,3 @@
+[submodule "ios/DocScanner"]
+	path = ios/DocScanner
+	url = https://github.com/WebsiteBeaver/ios-document-scanner
