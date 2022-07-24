@@ -20,13 +20,15 @@ After installing the plugin, you need to follow the steps below
 
 ### iOS
 
-iOS requires the following usage description be added and filled out for your app in `Info.plist`:
+1. Open `ios/Podfile` and set `platform :ios` to `13` or higher
+
+2. iOS requires the following usage description be added and filled out for your app in `Info.plist`:
 
 - `NSCameraUsageDescription` (`Privacy - Camera Usage Description`)
 
 ### Android
 
-Open `android/gradle.properties` and add `org.gradle.jvmargs=-Xmx2048m`
+1. Open `android/gradle.properties` and add `org.gradle.jvmargs=-Xmx2048m`
 
 ## Examples
 
