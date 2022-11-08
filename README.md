@@ -30,6 +30,41 @@ After installing the plugin, you need to follow the steps below
 
 1. Open `android/gradle.properties` and add `org.gradle.jvmargs=-Xmx2048m`
 
+### Expo
+
+Using this library with Expo requires using [Development Builds](https://docs.expo.dev/development/getting-started/) due to native dependencies.
+
+Install the dependency using expo:
+
+```bash
+$ npx expo install react-native-document-scanner-plugin
+```
+
+To use the library, add it to your `app.json` plugin list:
+
+```JSON
+{
+  // ...
+  "plugins": [
+    // ...
+    [
+      "react-native-document-scanner-plugin",
+      {
+        "cameraPermissionText": "$(PRODUCT_NAME) needs access to your Camera to capture photos."
+      }
+    ]
+  ]
+}
+```
+
+Finally compile your development build locally or using EAS:
+
+```bash
+$ npx expo prebuild
+# or
+$ eas build
+```
+
 ## Examples
 
 * [Basic Example](#basic-example)
@@ -257,4 +292,3 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
