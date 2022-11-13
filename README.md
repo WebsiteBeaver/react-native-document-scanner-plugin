@@ -249,6 +249,38 @@ Opens the camera, and starts the document scan
 
 </docgen-api>
 
+## Expo
+
+This plugin doesn't run in Expo Go. It works with Expo, and you can avoid manually changing iOS and Android files by following these steps.
+
+```bash
+npx expo install react-native-document-scanner-plugin
+```
+
+Add `react-native-document-scanner-plugin` to plugins in `app.json` or `app.config.json`.
+
+```javascript
+{
+  "name": "my expo app",
+  "plugins": [
+    [
+      "react-native-document-scanner-plugin",
+      {
+        "cameraPermission": "We need camera access, so you can scan documents"
+      }
+    ]
+  ]
+}
+```
+
+```bash
+npx expo prebuild
+```
+or
+```bash
+eas build
+```
+
 ## License
 
 Copyright 2022 David Marcus
