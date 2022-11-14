@@ -64,6 +64,7 @@ export default () => {
 
   return (
     <Image
+      resizeMode="contain"
       style={{ width: '100%', height: '100%' }}
       source={{ uri: scannedImage }}
     />
@@ -127,6 +128,7 @@ export default () => {
 
   return (
     <Image
+      resizeMode="contain"
       style={{ width: '100%', height: '100%' }}
       source={{ uri: scannedImage }}
     />
@@ -170,6 +172,7 @@ export default () => {
 
   return (
     <Image
+      resizeMode="contain"
       style={{ width: '100%', height: '100%' }}
       source={{ uri: scannedImage }}
     />
