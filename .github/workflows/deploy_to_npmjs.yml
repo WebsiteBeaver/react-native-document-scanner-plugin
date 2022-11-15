@@ -29,5 +29,6 @@ jobs:
         run: |
           npm ci
           npm run build
+          npm run build:expo-plugin
           echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}">.npmrc
           npm publish
