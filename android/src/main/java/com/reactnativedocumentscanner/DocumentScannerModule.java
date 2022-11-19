@@ -19,6 +19,7 @@ import com.facebook.react.bridge.WritableNativeMap;
 import com.facebook.react.module.annotations.ReactModule;
 import com.websitebeaver.documentscanner.DocumentScanner;
 import com.websitebeaver.documentscanner.constants.DocumentScannerExtra;
+import com.websitebeaver.documentscanner.constants.ResponseType;
 import java.util.ArrayList;
 
 @ReactModule(name = DocumentScannerModule.NAME)
@@ -66,9 +67,13 @@ public class DocumentScannerModule extends ReactContextBaseJavaModule {
                 (ComponentActivity) currentActivity,
                 (ArrayList<String> documentScanResults) -> {
                     // document scan success
+                    boolean isResponseBase64 = options.hasKey("responseType")
+                            && options.getString("responseType").equals(ResponseType.BASE64);
                     WritableArray docScanResults = new WritableNativeArray();
                     documentScanResults.forEach(
-                            documentScanResult -> docScanResults.pushString("file://" + documentScanResult)
+                            documentScanResult -> docScanResults.pushString(
+                                    (isResponseBase64 ? "" : "file://") + documentScanResult
+                            )
                     );
                     response.putArray(
                             "scannedImages",
