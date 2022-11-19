@@ -25,7 +25,7 @@ import java.util.ArrayList;
 public class DocumentScannerModule extends ReactContextBaseJavaModule {
     public static final String NAME = "DocumentScanner";
 
-    private static final int DOCUMENT_SCAN_REQUEST = 1;
+    private static final int DOCUMENT_SCAN_REQUEST = 938;
 
     DocumentScanner documentScanner;
 
