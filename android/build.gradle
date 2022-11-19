@@ -56,5 +56,5 @@ repositories {
 dependencies {
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
-    implementation "com.websitebeaver:documentscanner:1.0.5"
+    implementation "com.websitebeaver:documentscanner:1.1.0"
 }
