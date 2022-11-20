@@ -68,7 +68,7 @@ public class DocumentScannerModule extends ReactContextBaseJavaModule {
                     // document scan success
                     WritableArray docScanResults = new WritableNativeArray();
                     documentScanResults.forEach(
-                            documentScanResult -> docScanResults.pushString("file://" + documentScanResult)
+                            documentScanResult -> docScanResults.pushString(documentScanResult)
                     );
                     response.putArray(
                             "scannedImages",
