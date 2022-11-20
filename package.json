@@ -1,6 +1,6 @@
 {
   "name": "react-native-document-scanner-plugin",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "A React Native plugin that lets you scan documents using Android and iOS",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
