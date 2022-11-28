@@ -36,20 +36,20 @@ export interface ScanDocumentOptions {
    * can only take 1 photo (maxNumDocuments can't be more than 1 in this case).
    * @default: true
    */
-  letUserAdjustCrop?: boolean
+  letUserAdjustCrop?: boolean;
 
   /**
    * Android only: The maximum number of photos an user can take (not counting photo retakes)
    * @default: 24
    */
-  maxNumDocuments?: number
+  maxNumDocuments?: number;
 
   /**
    * The response comes back in this format on success. It can be the document
    * scan image file paths or base64 images.
    * @default: ResponseType.ImageFilePath
    */
-  responseType?: ResponseType
+  responseType?: ResponseType;
 }
 
 export enum ResponseType {
@@ -61,7 +61,7 @@ export enum ResponseType {
   /**
    * Use this response type if you want document scan returned as inmage file paths.
    */
-  ImageFilePath = 'imageFilePath'
+  ImageFilePath = 'imageFilePath',
 }
 
 export interface ScanDocumentResponse {
@@ -69,13 +69,13 @@ export interface ScanDocumentResponse {
    * This is an array with either file paths or base64 images for the
    * document scan.
    */
-  scannedImages?: string[]
+  scannedImages?: string[];
 
   /**
    * The status lets you know if the document scan completes successfully,
    * or if the user cancels before completing the document scan.
    */
-  status?: ScanDocumentResponseStatus
+  status?: ScanDocumentResponseStatus;
 }
 
 export enum ScanDocumentResponseStatus {
@@ -89,5 +89,5 @@ export enum ScanDocumentResponseStatus {
    * The status comes back as cancel if the user closes out of the camera
    * before completing the document scan.
    */
-  Cancel = 'cancel'
+  Cancel = 'cancel',
 }
