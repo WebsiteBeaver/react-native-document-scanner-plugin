@@ -15,12 +15,14 @@ const withDocumentScanner: ConfigPlugin<
 > = (config, { cameraPermission } = {}) => {
   config = withInfoPlist(config, (config) => {
     config.modResults.NSCameraUsageDescription =
-      cameraPermission || config.modResults.NSCameraUsageDescription || CAMERA_USAGE;
+      cameraPermission ||
+      config.modResults.NSCameraUsageDescription ||
+      CAMERA_USAGE;
 
     return config;
   });
 
-  return config
+  return config;
 };
 
 export default createRunOncePlugin(withDocumentScanner, pkg.name, pkg.version);
