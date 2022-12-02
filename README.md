@@ -30,11 +30,14 @@ After installing the plugin, you need to follow the steps below
 
 1. Open `android/gradle.properties` and add `org.gradle.jvmargs=-Xmx2048m`
 
+> **Note:** `react-native-document-scanner-plugin` does not require user permission for the camera functionality. See [Android Developer Docs]() for details. However, if your application uses a library that requires specifying `<uses-permission android:name="android.permission.CAMERA" />` in your application's `AndroidManifest.xml`, then you must check for permission before calling `DocumentScanner.scanDocument()`. See [Permission Check (Android)](#permission-check-android) for implementation example.
+
 ## Examples
 
 * [Basic Example](#basic-example)
 * [Limit Number of Scans](#limit-number-of-scans)
 * [Remove Cropper](#remove-cropper)
+* [Permission Check (Android)](#permission-check-android)
 
 ### Basic Example
 
@@ -181,6 +184,44 @@ export default () => {
 ```
 
 https://user-images.githubusercontent.com/26162804/161643377-cabd7f51-a16f-4f5e-938a-afb6f3b1c8cb.mp4
+
+### Permission Check (Android)
+*A permission check is only required if `<uses-permission android:name="android.permission.CAMERA" />` is specified in manifest `AndroidManifest.xml`*
+```javascript
+import React, { useState, useEffect } from 'react'
+import { Alert, Image, Platform, PermissionsAndroid } from 'react-native'
+import DocumentScanner from 'react-native-document-scanner-plugin'
+
+export default () => {
+  ...
+  const scanDocument = async () => {
+    if(Platform.OS === 'android'){
+      // check if camera permission already granted
+      let status = await PermissionsAndroid.check(PermissionsAndroid.PERMISSIONS.CAMERA);
+      
+      if(!status){
+        // if not granted request permission
+        status = await requestCameraPermissionAndroid();
+
+        // if user does not grant permission alert and end function
+        if(!status){
+          Alert.alert('User must grant camera permissions to use document scanner.');
+          return;
+        }
+      }
+    }
+
+    // start the document scanner
+    const { scannedImages } = await DocumentScanner.scanDocument();
+  
+    // get back an array with scanned image file paths
+    if (scannedImages.length > 0) {
+      // set the img src, so we can view the first scanned image
+      setScannedImage(scannedImages[0]);
+    }
+  }
+  ...
+```
 
 ## Documentation
 
