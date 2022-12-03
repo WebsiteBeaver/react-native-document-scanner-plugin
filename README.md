@@ -13,7 +13,6 @@ apps that let users scan notes, homework, business cards, receipts, or anything 
 
 ```bash
 npm install react-native-document-scanner-plugin
-cd ios && pod install && cd ..
 ```
 
 After installing the plugin, you need to follow the steps below
@@ -26,9 +25,16 @@ After installing the plugin, you need to follow the steps below
 
 - `NSCameraUsageDescription` (`Privacy - Camera Usage Description`)
 
+3. Install pods by running
+```bash
+cd ios && pod install && cd ..
+```
+
 ### Android
 
 1. Open `android/gradle.properties` and add `org.gradle.jvmargs=-Xmx2048m`
+
+**Note:** You don't need to prompt the user to accept camera permissions for this plugin to work unless you're using another plugin that requires the user to accept camera permissions. See [Android Camera Permissions](#android-camera-permissions).
 
 ## Examples
 
@@ -283,6 +289,62 @@ or
 ```bash
 eas build
 ```
+
+## Common Mistakes
+
+* [Android Camera Permissions](#android-camera-permissions)
+
+### Android Camera Permissions
+
+You don't need to request camera permissions unless you're using another camera plugin that adds `<uses-permission android:name="android.permission.CAMERA" />` to the application's `AndroidManifest.xml`.
+
+In that case if you don't request camera permissions you get this error
+`Error: error - error opening camera: Permission Denial: starting Intent { act=android.media.action.IMAGE_CAPTURE`
+
+Here's an example of how to request camera permissions.
+
+```javascript
+import React, { useState, useEffect } from 'react'
+import { Platform, PermissionsAndroid, Image, Alert } from 'react-native'
+import DocumentScanner from 'react-native-document-scanner-plugin'
+
+export default () => {
+  const [scannedImage, setScannedImage] = useState();
+
+  const scanDocument = async () => {
+    // prompt user to accept camera permission request if they haven't already
+    if (Platform.OS === 'android' && await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.CAMERA
+    ) !== PermissionsAndroid.RESULTS.GRANTED) {
+      Alert.alert('Error', 'User must grant camera permissions to use document scanner.')
+      return
+    }
+
+    // start the document scanner
+    const { scannedImages } = await DocumentScanner.scanDocument()
+  
+    // get back an array with scanned image file paths
+    if (scannedImages.length > 0) {
+      // set the img src, so we can view the first scanned image
+      setScannedImage(scannedImages[0])
+    }
+  }
+
+  useEffect(() => {
+    // call scanDocument on load
+    scanDocument()
+  }, []);
+
+  return (
+    <Image
+      resizeMode="contain"
+      style={{ width: '100%', height: '100%' }}
+      source={{ uri: scannedImage }}
+    />
+  )
+}
+```
+
 
 ## License
 
