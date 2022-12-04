@@ -44,7 +44,7 @@ cd ios && pod install && cd ..
 
 ### Basic Example
 
-```javascript
+```javascript{% raw %}
 import React, { useState, useEffect } from 'react'
 import { Image } from 'react-native'
 import DocumentScanner from 'react-native-document-scanner-plugin'
@@ -76,29 +76,29 @@ export default () => {
     />
   )
 }
-```
+{% endraw %}```
 
 Here's what this example looks like with several items
 
-https://user-images.githubusercontent.com/26162804/160264220-0a77a55c-33b1-492a-9617-6d2c083b0583.mp4
+<video src="https://user-images.githubusercontent.com/26162804/160264220-0a77a55c-33b1-492a-9617-6d2c083b0583.mp4" data-canonical-src="https://user-images.githubusercontent.com/26162804/160264220-0a77a55c-33b1-492a-9617-6d2c083b0583.mp4" controls="controls" muted="muted" class="d-block rounded-bottom-2 border-top width-fit" style="max-height:640px;"></video>
 
-https://user-images.githubusercontent.com/26162804/160264222-bef1ba3d-d6c1-43c8-ba2e-77ff5baef836.mp4
+<video src="https://user-images.githubusercontent.com/26162804/160264222-bef1ba3d-d6c1-43c8-ba2e-77ff5baef836.mp4" data-canonical-src="https://user-images.githubusercontent.com/26162804/160264222-bef1ba3d-d6c1-43c8-ba2e-77ff5baef836.mp4" controls="controls" muted="muted" class="d-block rounded-bottom-2 border-top width-fit" style="max-height:640px;"></video>
 
-https://user-images.githubusercontent.com/26162804/161643046-57536193-0c6c-4edf-8f29-6f3ef9854dc5.mp4
+<video src="https://user-images.githubusercontent.com/26162804/161643046-57536193-0c6c-4edf-8f29-6f3ef9854dc5.mp4" data-canonical-src="https://user-images.githubusercontent.com/26162804/161643046-57536193-0c6c-4edf-8f29-6f3ef9854dc5.mp4" controls="controls" muted="muted" class="d-block rounded-bottom-2 border-top width-fit" style="max-height:640px;"></video>
 
-https://user-images.githubusercontent.com/26162804/161643075-365b5008-4bc8-4507-969d-b2c188f372ec.mp4
+<video src="https://user-images.githubusercontent.com/26162804/161643075-365b5008-4bc8-4507-969d-b2c188f372ec.mp4" data-canonical-src="https://user-images.githubusercontent.com/26162804/161643075-365b5008-4bc8-4507-969d-b2c188f372ec.mp4" controls="controls" muted="muted" class="d-block rounded-bottom-2 border-top width-fit" style="max-height:640px;"></video>
 
-https://user-images.githubusercontent.com/26162804/161643102-35283536-73a3-4b05-bd76-c06514ca3928.mp4
+<video src="https://user-images.githubusercontent.com/26162804/161643102-35283536-73a3-4b05-bd76-c06514ca3928.mp4" data-canonical-src="https://user-images.githubusercontent.com/26162804/161643102-35283536-73a3-4b05-bd76-c06514ca3928.mp4" controls="controls" muted="muted" class="d-block rounded-bottom-2 border-top width-fit" style="max-height:640px;"></video>
 
-https://user-images.githubusercontent.com/26162804/161643126-f5c2461d-768d-481c-8dee-4d74a0cae778.mp4
+<video src="https://user-images.githubusercontent.com/26162804/161643126-f5c2461d-768d-481c-8dee-4d74a0cae778.mp4" data-canonical-src="https://user-images.githubusercontent.com/26162804/161643126-f5c2461d-768d-481c-8dee-4d74a0cae778.mp4" controls="controls" muted="muted" class="d-block rounded-bottom-2 border-top width-fit" style="max-height:640px;"></video>
 
-https://user-images.githubusercontent.com/26162804/161643156-4ce1abac-d78b-4211-a99a-f0bebd40e2a6.mp4
+<video src="https://user-images.githubusercontent.com/26162804/161643156-4ce1abac-d78b-4211-a99a-f0bebd40e2a6.mp4" data-canonical-src="https://user-images.githubusercontent.com/26162804/161643156-4ce1abac-d78b-4211-a99a-f0bebd40e2a6.mp4" controls="controls" muted="muted" class="d-block rounded-bottom-2 border-top width-fit" style="max-height:640px;"></video>
 
-https://user-images.githubusercontent.com/26162804/161643167-fc751455-1a1a-4b1c-b06f-a3a2cef0d0b0.mp4
+<video src="https://user-images.githubusercontent.com/26162804/161643167-fc751455-1a1a-4b1c-b06f-a3a2cef0d0b0.mp4" data-canonical-src="https://user-images.githubusercontent.com/26162804/161643167-fc751455-1a1a-4b1c-b06f-a3a2cef0d0b0.mp4" controls="controls" muted="muted" class="d-block rounded-bottom-2 border-top width-fit" style="max-height:640px;"></video>
 
-https://user-images.githubusercontent.com/26162804/161643192-71db71af-392d-4b6a-b94d-851a3369dbf3.mp4
+<video src="https://user-images.githubusercontent.com/26162804/161643192-71db71af-392d-4b6a-b94d-851a3369dbf3.mp4" data-canonical-src="https://user-images.githubusercontent.com/26162804/161643192-71db71af-392d-4b6a-b94d-851a3369dbf3.mp4" controls="controls" muted="muted" class="d-block rounded-bottom-2 border-top width-fit" style="max-height:640px;"></video>
 
-https://user-images.githubusercontent.com/26162804/161643203-2a265cc1-5cf1-4474-b43c-7b1b2dcba704.mp4
+<video src="https://user-images.githubusercontent.com/26162804/161643203-2a265cc1-5cf1-4474-b43c-7b1b2dcba704.mp4" data-canonical-src="https://user-images.githubusercontent.com/26162804/161643203-2a265cc1-5cf1-4474-b43c-7b1b2dcba704.mp4" controls="controls" muted="muted" class="d-block rounded-bottom-2 border-top width-fit" style="max-height:640px;"></video>
 
 ### Limit Number of Scans
 
@@ -106,7 +106,7 @@ You can limit the number of scans. For example if your app lets a user scan a bu
 card you might want them to only capture the front and back. In this case you can set
 maxNumDocuments to 2. This only works on Android.
 
-```javascript
+```javascript{% raw %}
 import React, { useState, useEffect } from 'react'
 import { Image } from 'react-native'
 import DocumentScanner from 'react-native-document-scanner-plugin'
@@ -140,9 +140,9 @@ export default () => {
     />
   )
 }
-```
+{% endraw %}```
 
-https://user-images.githubusercontent.com/26162804/161643345-6fe15f33-9414-46f5-b5d5-24d88948e801.mp4
+<video src="https://user-images.githubusercontent.com/26162804/161643345-6fe15f33-9414-46f5-b5d5-24d88948e801.mp4" data-canonical-src="https://user-images.githubusercontent.com/26162804/161643345-6fe15f33-9414-46f5-b5d5-24d88948e801.mp4" controls="controls" muted="muted" class="d-block rounded-bottom-2 border-top width-fit" style="max-height:640px;"></video>
 
 ### Remove Cropper
 
@@ -150,7 +150,7 @@ You can automatically accept the detected document corners, and prevent the user
 making adjustments. Set letUserAdjustCrop to false to skip the crop screen. This limits
 the max number of scans to 1. This only works on Android.
 
-```javascript
+```javascript{% raw %}
 import React, { useState, useEffect } from 'react'
 import { Image } from 'react-native'
 import DocumentScanner from 'react-native-document-scanner-plugin'
@@ -184,22 +184,15 @@ export default () => {
     />
   )
 }
-```
+{% endraw %}```
 
-https://user-images.githubusercontent.com/26162804/161643377-cabd7f51-a16f-4f5e-938a-afb6f3b1c8cb.mp4
+<video src="https://user-images.githubusercontent.com/26162804/161643377-cabd7f51-a16f-4f5e-938a-afb6f3b1c8cb.mp4" data-canonical-src="https://user-images.githubusercontent.com/26162804/161643377-cabd7f51-a16f-4f5e-938a-afb6f3b1c8cb.mp4" controls="controls" muted="muted" class="d-block rounded-bottom-2 border-top width-fit" style="max-height:640px;"></video>
 
 ## Documentation
-
-<docgen-index>
 
 * [`scanDocument(...)`](#scandocument)
 * [Interfaces](#interfaces)
 * [Enums](#enums)
-
-</docgen-index>
-
-<docgen-api>
-<!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
 
 ### scanDocument(...)
 
@@ -255,8 +248,6 @@ Opens the camera, and starts the document scan
 | ------------------- | ---------------------------- | ------------------------------------------------------------------------------- |
 | **`Base64`**        | <code>'base64'</code>        | Use this response type if you want document scan returned as base64 images.     |
 | **`ImageFilePath`** | <code>'imageFilePath'</code> | Use this response type if you want document scan returned as inmage file paths. |
-
-</docgen-api>
 
 ## Expo
 
@@ -344,7 +335,6 @@ export default () => {
   )
 }
 ```
-
 
 ## License
 
