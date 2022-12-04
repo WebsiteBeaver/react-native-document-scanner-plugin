@@ -44,7 +44,7 @@ cd ios && pod install && cd ..
 
 ### Basic Example
 
-```javascript{% raw %}
+```javascript
 import React, { useState, useEffect } from 'react'
 import { Image } from 'react-native'
 import DocumentScanner from 'react-native-document-scanner-plugin'
@@ -76,7 +76,7 @@ export default () => {
     />
   )
 }
-{% endraw %}```
+```
 
 Here's what this example looks like with several items
 
@@ -106,7 +106,7 @@ You can limit the number of scans. For example if your app lets a user scan a bu
 card you might want them to only capture the front and back. In this case you can set
 maxNumDocuments to 2. This only works on Android.
 
-```javascript{% raw %}
+```javascript
 import React, { useState, useEffect } from 'react'
 import { Image } from 'react-native'
 import DocumentScanner from 'react-native-document-scanner-plugin'
@@ -140,7 +140,7 @@ export default () => {
     />
   )
 }
-{% endraw %}```
+```
 
 <video src="https://user-images.githubusercontent.com/26162804/161643345-6fe15f33-9414-46f5-b5d5-24d88948e801.mp4" data-canonical-src="https://user-images.githubusercontent.com/26162804/161643345-6fe15f33-9414-46f5-b5d5-24d88948e801.mp4" controls="controls" muted="muted" class="d-block rounded-bottom-2 border-top width-fit" style="max-height:640px;"></video>
 
@@ -150,7 +150,7 @@ You can automatically accept the detected document corners, and prevent the user
 making adjustments. Set letUserAdjustCrop to false to skip the crop screen. This limits
 the max number of scans to 1. This only works on Android.
 
-```javascript{% raw %}
+```javascript
 import React, { useState, useEffect } from 'react'
 import { Image } from 'react-native'
 import DocumentScanner from 'react-native-document-scanner-plugin'
@@ -184,7 +184,7 @@ export default () => {
     />
   )
 }
-{% endraw %}```
+```
 
 <video src="https://user-images.githubusercontent.com/26162804/161643377-cabd7f51-a16f-4f5e-938a-afb6f3b1c8cb.mp4" data-canonical-src="https://user-images.githubusercontent.com/26162804/161643377-cabd7f51-a16f-4f5e-938a-afb6f3b1c8cb.mp4" controls="controls" muted="muted" class="d-block rounded-bottom-2 border-top width-fit" style="max-height:640px;"></video>
 
