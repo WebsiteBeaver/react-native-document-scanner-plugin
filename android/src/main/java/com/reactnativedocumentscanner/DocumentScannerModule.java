@@ -86,7 +86,7 @@ public class DocumentScannerModule extends ReactContextBaseJavaModule {
                 () -> {
                     // when user cancels document scan
                     response.putString("status", "cancel");
-                    promise.resolve(response);
+                    // promise.resolve(response); //Remove this line, because of app crash error when user closes camera. 
                     return null;
                 },
                 options.hasKey("responseType")
