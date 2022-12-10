@@ -36,7 +36,8 @@ class DocumentScanner: NSObject {
                         "status": "cancel"
                     ])
                 },
-                responseType: options["responseType"] as? String
+                responseType: options["responseType"] as? String,
+                croppedImageQuality: options["croppedImageQuality"] as? Int
             )
         }
     }
