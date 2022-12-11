@@ -96,6 +96,9 @@ public class DocumentScannerModule extends ReactContextBaseJavaModule {
                         : null,
                 options.hasKey(DocumentScannerExtra.EXTRA_MAX_NUM_DOCUMENTS)
                         ? options.getInt(DocumentScannerExtra.EXTRA_MAX_NUM_DOCUMENTS)
+                        : null,
+                options.hasKey(DocumentScannerExtra.EXTRA_CROPPED_IMAGE_QUALITY)
+                        ? options.getInt(DocumentScannerExtra.EXTRA_CROPPED_IMAGE_QUALITY)
                         : null
         );
 
