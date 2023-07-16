@@ -19,10 +19,10 @@ def safeExtGet(prop, fallback) {
 }
 
 android {
-    compileSdkVersion safeExtGet('DocumentScanner_compileSdkVersion', 30)
+    compileSdkVersion safeExtGet('DocumentScanner_compileSdkVersion', 33)
     defaultConfig {
         minSdkVersion safeExtGet('DocumentScanner_minSdkVersion', 16)
-        targetSdkVersion safeExtGet('DocumentScanner_targetSdkVersion', 30)
+        targetSdkVersion safeExtGet('DocumentScanner_targetSdkVersion', 33)
         versionCode 1
         versionName "1.0"
 
