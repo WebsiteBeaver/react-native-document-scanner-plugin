@@ -37,7 +37,7 @@ public class DocumentScannerModule extends ReactContextBaseJavaModule {
                 final int resultCode,
                 final Intent intent) {
             // trigger callbacks (success, cancel, error)
-            if (requestCode == DOCUMENT_SCAN_REQUEST) {
+            if (requestCode == DOCUMENT_SCAN_REQUEST && documentScanner != null) {
                 documentScanner.handleDocumentScanIntentResult(
                         new ActivityResult(resultCode, intent)
                 );
