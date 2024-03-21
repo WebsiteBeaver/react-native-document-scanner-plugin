@@ -40,7 +40,6 @@ cd ios && pod install && cd ..
 
 * [Basic Example](#basic-example)
 * [Limit Number of Scans](#limit-number-of-scans)
-* [Remove Cropper](#remove-cropper)
 
 ### Basic Example
 
@@ -144,50 +143,6 @@ export default () => {
 
 <video src="https://user-images.githubusercontent.com/26162804/161643345-6fe15f33-9414-46f5-b5d5-24d88948e801.mp4" data-canonical-src="https://user-images.githubusercontent.com/26162804/161643345-6fe15f33-9414-46f5-b5d5-24d88948e801.mp4" controls="controls" muted="muted" class="d-block rounded-bottom-2 border-top width-fit" style="max-height:640px;"></video>
 
-### Remove Cropper
-
-You can automatically accept the detected document corners, and prevent the user from 
-making adjustments. Set letUserAdjustCrop to false to skip the crop screen. This limits
-the max number of scans to 1. This only works on Android.
-
-```javascript
-import React, { useState, useEffect } from 'react'
-import { Image } from 'react-native'
-import DocumentScanner from 'react-native-document-scanner-plugin'
-
-export default () => {
-  const [scannedImage, setScannedImage] = useState();
-
-  const scanDocument = async () => {
-    // start the document scanner
-    const { scannedImages } = await DocumentScanner.scanDocument({
-      letUserAdjustCrop: false
-    })
-  
-    // get back an array with scanned image file paths
-    if (scannedImages.length > 0) {
-      // set the img src, so we can view the first scanned image
-      setScannedImage(scannedImages[0])
-    }
-  }
-
-  useEffect(() => {
-    // call scanDocument on load
-    scanDocument()
-  }, []);
-
-  return (
-    <Image
-      resizeMode="contain"
-      style={{ width: '100%', height: '100%' }}
-      source={{ uri: scannedImage }}
-    />
-  )
-}
-```
-
-<video src="https://user-images.githubusercontent.com/26162804/161643377-cabd7f51-a16f-4f5e-938a-afb6f3b1c8cb.mp4" data-canonical-src="https://user-images.githubusercontent.com/26162804/161643377-cabd7f51-a16f-4f5e-938a-afb6f3b1c8cb.mp4" controls="controls" muted="muted" class="d-block rounded-bottom-2 border-top width-fit" style="max-height:640px;"></video>
-
 ## Documentation
 
 * [`scanDocument(...)`](#scandocument)
@@ -227,8 +182,7 @@ Opens the camera, and starts the document scan
 | Prop                    | Type                                                  | Description                                                                                                                                                                                                                                                                                                                               | Default                                   |
 | ----------------------- | ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
 | **`croppedImageQuality`**   | <code>number</code>                                   | The quality of the cropped image from 0 - 100. 100 is the best quality.                                                                                                                                                                                                                                                | <code>: 100</code>                         |
-| **`letUserAdjustCrop`** | <code>boolean</code>                                  | Android only: If true then once the user takes a photo, they get to preview the automatically detected document corners. They can then move the corners in case there needs to be an adjustment. If false then the user can't adjust the corners, and the user can only take 1 photo (maxNumDocuments can't be more than 1 in this case). | <code>: true</code>                       |
-| **`maxNumDocuments`**   | <code>number</code>                                   | Android only: The maximum number of photos an user can take (not counting photo retakes)                                                                                                                                                                                                                                                  | <code>: 24</code>                         |
+| **`maxNumDocuments`**   | <code>number</code>                                   | Android only: The maximum number of photos an user can take (not counting photo retakes)                                                                                                                                                                                                                                                  | <code>: undefined</code>                         |
 | **`responseType`**      | <code><a href="#responsetype">ResponseType</a></code> | The response comes back in this format on success. It can be the document scan image file paths or base64 images.                                                                                                                                                                                                                         | <code>: ResponseType.ImageFilePath</code> |
 
 
