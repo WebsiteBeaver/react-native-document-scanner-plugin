@@ -34,19 +34,10 @@ export interface ScanDocumentOptions {
    * @default: 100
    */
   croppedImageQuality?: number;
-  
-  /**
-   * Android only: If true then once the user takes a photo, they get to preview the automatically
-   * detected document corners. They can then move the corners in case there needs to
-   * be an adjustment. If false then the user can't adjust the corners, and the user
-   * can only take 1 photo (maxNumDocuments can't be more than 1 in this case).
-   * @default: true
-   */
-  letUserAdjustCrop?: boolean;
 
   /**
    * Android only: The maximum number of photos an user can take (not counting photo retakes)
-   * @default: 24
+   * @default: undefined
    */
   maxNumDocuments?: number;
 
