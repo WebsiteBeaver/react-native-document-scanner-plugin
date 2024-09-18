@@ -19,6 +19,7 @@ def safeExtGet(prop, fallback) {
 }
 
 android {
+    namespace "com.reactnativedocumentscanner"
     compileSdkVersion safeExtGet('DocumentScanner_compileSdkVersion', 33)
     defaultConfig {
         minSdkVersion safeExtGet('DocumentScanner_minSdkVersion', 16)
