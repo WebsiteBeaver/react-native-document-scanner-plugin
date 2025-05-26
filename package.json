@@ -1,6 +1,6 @@
 {
   "name": "@atmina/react-native-document-scanner-plugin",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A React Native plugin that lets you scan documents using Android and iOS",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
