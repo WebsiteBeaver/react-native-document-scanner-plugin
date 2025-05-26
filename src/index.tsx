@@ -47,6 +47,7 @@ export interface ScanDocumentOptions {
    * @default: ResponseType.ImageFilePath
    */
   responseType?: ResponseType;
+  androidScannerMode?: AndroidScannerMode
 }
 
 export enum ResponseType {
@@ -87,4 +88,10 @@ export enum ScanDocumentResponseStatus {
    * before completing the document scan.
    */
   Cancel = 'cancel',
+}
+
+export enum AndroidScannerMode {
+  ScannerModeFull = 1,
+  ScannerModeBaseWithFilter = 2,
+  ScannerModeBase = 3,
 }

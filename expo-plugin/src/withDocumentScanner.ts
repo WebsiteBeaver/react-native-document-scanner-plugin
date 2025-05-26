@@ -4,7 +4,7 @@ import {
   withInfoPlist,
 } from '@expo/config-plugins';
 
-const pkg = require('react-native-document-scanner-plugin/package.json');
+const pkg = require('@atmina/react-native-document-scanner-plugin/package.json');
 
 const CAMERA_USAGE = 'Allow $(PRODUCT_NAME) to access your camera';
 

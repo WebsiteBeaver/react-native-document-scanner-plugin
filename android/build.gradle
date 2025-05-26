@@ -7,7 +7,7 @@ buildscript {
         }
 
         dependencies {
-            classpath 'com.android.tools.build:gradle:3.5.3'
+            classpath 'com.android.tools.build:gradle:8.8.2'
         }
     }
 }
@@ -19,6 +19,7 @@ def safeExtGet(prop, fallback) {
 }
 
 android {
+    namespace = 'com.reactnativedocumentscanner'
     compileSdkVersion safeExtGet('DocumentScanner_compileSdkVersion', 33)
     defaultConfig {
         minSdkVersion safeExtGet('DocumentScanner_minSdkVersion', 16)
