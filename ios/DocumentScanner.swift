@@ -1,50 +1,92 @@
-@available(iOS 13.0, *)
+import Foundation
+import UIKit
+import React
+
+#if RCT_NEW_ARCH_ENABLED
+@objc
+protocol DocumentScannerSpec: RCTBridgeModule {
+  @objc
+  func scanDocument(
+    _ options: [AnyHashable: Any],
+    resolve: @escaping RCTPromiseResolveBlock,
+    reject: @escaping RCTPromiseRejectBlock
+  )
+}
+#endif
+
+#if RCT_NEW_ARCH_ENABLED
+extension DocumentScanner: DocumentScannerSpec {
+  func scanDocument(
+    _ options: [AnyHashable: Any],
+    resolve: @escaping RCTPromiseResolveBlock,
+    reject: @escaping RCTPromiseRejectBlock
+  ) {
+    scanInternal(
+      options: options as? [String: Any] ?? [:],
+      resolve: resolve,
+      reject: reject
+    )
+  }
+}
+#endif
+
 @objc(DocumentScanner)
 class DocumentScanner: NSObject {
+  private var docScanner: DocScanner?
 
-    @objc static func requiresMainQueueSetup() -> Bool {
-        return true
-    }
-    
-    /** @property  documentScanner the document scanner */
-    private var documentScanner: DocScanner?
+  @objc static func moduleName() -> String! { "DocumentScanner" }
+  @objc static func requiresMainQueueSetup() -> Bool { true }
 
-    @objc(scanDocument:withResolver:withRejecter:)
-    func scanDocument(
-      _ options: NSDictionary,
-      resolve: @escaping RCTPromiseResolveBlock,
-      reject: @escaping RCTPromiseRejectBlock
-    ) -> Void {
-        DispatchQueue.main.async {
-            self.documentScanner = DocScanner()
+  #if !RCT_NEW_ARCH_ENABLED
+  // Old arch (Bridging). for .m file (RCT_EXTERN)
+  @objc(scanDocument:resolve:reject:)
+  func scanDocumentObjC(
+    _ options: NSDictionary,
+    resolve: @escaping RCTPromiseResolveBlock,
+    reject: @escaping RCTPromiseRejectBlock
+  ) {
+    scanInternal(options: options as? [String: Any] ?? [:], resolve: resolve, reject: reject)
+  }
+  #endif
 
-            // launch the document scanner
-            self.documentScanner?.startScan(
-                RCTPresentedViewController(),
-                successHandler: { (scannedDocumentImages: [String]) in
-                    // document scan success
-                    resolve([
-                        "status": "success",
-                        "scannedImages": scannedDocumentImages
-                    ])
-                    self.documentScanner = nil
-                },
-                errorHandler: { (errorMessage: String) in
-                    // document scan error
-                    reject("document scan error", errorMessage, nil)
-                    self.documentScanner = nil
-                },
-                cancelHandler: {
-                    // when user cancels document scan
-                    resolve([
-                        "status": "cancel"
-                    ])
-                    self.documentScanner = nil
-                },
-                responseType: options["responseType"] as? String,
-                croppedImageQuality: options["croppedImageQuality"] as? Int
-            )
-        }
+  private func scanInternal(
+    options: [String: Any],
+    resolve: @escaping RCTPromiseResolveBlock,
+    reject: @escaping RCTPromiseRejectBlock
+  ) {
+    guard #available(iOS 13.0, *) else {
+      reject("unsupported_ios", "iOS 13.0 or higher required", nil)
+      return
     }
 
+    DispatchQueue.main.async { [weak self] in
+      guard let self else { return }
+      self.docScanner = DocScanner()
+
+      let responseType = options["responseType"] as? String
+      let quality = options["croppedImageQuality"] as? Int
+
+      self.docScanner?.startScan(
+        RCTPresentedViewController(),
+        successHandler: { images in
+          resolve([
+            "status": "success",
+            "scannedImages": images
+          ])
+          self.docScanner = nil
+        },
+        errorHandler: { msg in
+          reject("document_scan_error", msg, nil)
+          self.docScanner = nil
+        },
+        cancelHandler: {
+          resolve(["status": "cancel"])
+          self.docScanner = nil
+        },
+        responseType: responseType,
+        croppedImageQuality: quality
+      )
+    }
+  }
 }
+
