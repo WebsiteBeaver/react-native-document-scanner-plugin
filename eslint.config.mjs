@@ -24,6 +24,13 @@ export default defineConfig([
     },
   },
   {
+    languageOptions: {
+      parserOptions: {
+        warnOnUnsupportedTypeScriptVersion: false,
+      },
+    },
+  },
+  {
     ignores: ['node_modules/', 'lib/'],
   },
 ]);
