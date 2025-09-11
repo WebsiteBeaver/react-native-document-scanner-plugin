@@ -15,13 +15,15 @@ class DocumentScanner: NSObject {
       resolve: @escaping RCTPromiseResolveBlock,
       reject: @escaping RCTPromiseRejectBlock
     ) -> Void {
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
             self.documentScanner = DocScanner()
 
             // launch the document scanner
             self.documentScanner?.startScan(
                 RCTPresentedViewController(),
-                successHandler: { (scannedDocumentImages: [String]) in
+                successHandler: { [weak self] (scannedDocumentImages: [String]) in
+                    guard let self = self else { return }
                     // document scan success
                     resolve([
                         "status": "success",
@@ -29,12 +31,14 @@ class DocumentScanner: NSObject {
                     ])
                     self.documentScanner = nil
                 },
-                errorHandler: { (errorMessage: String) in
+                errorHandler: { [weak self] (errorMessage: String) in
+                    guard let self = self else { return }
                     // document scan error
                     reject("document scan error", errorMessage, nil)
                     self.documentScanner = nil
                 },
-                cancelHandler: {
+                cancelHandler: { [weak self] in
+                    guard let self = self else { return }
                     // when user cancels document scan
                     resolve([
                         "status": "cancel"
