@@ -1,16 +1,14 @@
-@available(iOS 13.0, *)
-@objc(DocumentScanner)
-class DocumentScanner: NSObject {
+import Foundation
+import React
 
-    @objc static func requiresMainQueueSetup() -> Bool {
-        return true
-    }
+@objc(RNDocumentScanner)
+public class RNDocumentScanner: NSObject {
     
     /** @property  documentScanner the document scanner */
     private var documentScanner: DocScanner?
 
-    @objc(scanDocument:withResolver:withRejecter:)
-    func scanDocument(
+    @objc(scanDocument:resolve:reject:)
+    public func scanDocument(
       _ options: NSDictionary,
       resolve: @escaping RCTPromiseResolveBlock,
       reject: @escaping RCTPromiseRejectBlock

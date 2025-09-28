@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Image } from 'react-native';
 import DocumentScanner from 'react-native-document-scanner-plugin';
 

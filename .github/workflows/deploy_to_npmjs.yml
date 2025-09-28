@@ -17,18 +17,20 @@ jobs:
         with:
           submodules: true
 
-      - name: Install Node
+      - name: Install nvm
         run: |
-          sudo apt update
-          sudo apt upgrade
-          sudo apt-get install -y curl
-          curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-          sudo apt-get install -y nodejs
+          curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+          export NVM_DIR="$HOME/.nvm"
+          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+          [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+          nvm install
+          nvm use
 
       - name: Build and Deploy to npmjs
         run: |
-          npm ci
-          npm run build
-          npm run build:expo-plugin
+          yarn install
+          yarn build
+          yarn build:expo-plugin
+          yarn pack
           echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}">.npmrc
-          npm publish
+          yarn npm publish
