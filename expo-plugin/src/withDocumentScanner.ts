@@ -1,8 +1,5 @@
-import {
-  ConfigPlugin,
-  createRunOncePlugin,
-  withInfoPlist,
-} from '@expo/config-plugins';
+import { createRunOncePlugin, withInfoPlist } from '@expo/config-plugins';
+import type { ConfigPlugin } from '@expo/config-plugins';
 
 const pkg = require('react-native-document-scanner-plugin/package.json');
 
