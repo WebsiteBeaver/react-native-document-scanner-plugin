@@ -32,5 +32,5 @@ jobs:
           yarn build
           yarn build:expo-plugin
           yarn pack
-          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}">.npmrc
+          yarn config set npmAuthToken ${NPM_TOKEN}
           yarn npm publish
