@@ -19,20 +19,16 @@ After installing the plugin, you need to follow the steps below
 
 ### iOS
 
-1. Open `ios/Podfile` and set `platform :ios` to `13` or higher
-
-2. iOS requires the following usage description be added and filled out for your app in `Info.plist`:
+1. iOS requires the following usage description be added and filled out for your app in `Info.plist`:
 
 - `NSCameraUsageDescription` (`Privacy - Camera Usage Description`)
 
-3. Install pods by running
+2. Install pods by running
 ```bash
 cd ios && pod install && cd ..
 ```
 
 ### Android
-
-1. Open `android/gradle.properties` and add `org.gradle.jvmargs=-Xmx2048m`
 
 **Note:** You don't need to prompt the user to accept camera permissions for this plugin to work unless you're using another plugin that requires the user to accept camera permissions. See [Android Camera Permissions](#android-camera-permissions).
 
@@ -43,7 +39,8 @@ cd ios && pod install && cd ..
 
 ### Basic Example
 
-```javascript
+<!-- {% raw %} -->
+```jsx
 import React, { useState, useEffect } from 'react'
 import { Image } from 'react-native'
 import DocumentScanner from 'react-native-document-scanner-plugin'
@@ -76,6 +73,7 @@ export default () => {
   )
 }
 ```
+<!-- {% endraw %} -->
 
 Here's what this example looks like with several items
 
@@ -105,7 +103,8 @@ You can limit the number of scans. For example if your app lets a user scan a bu
 card you might want them to only capture the front and back. In this case you can set
 maxNumDocuments to 2. This only works on Android.
 
-```javascript
+<!-- {% raw %} -->
+```jsx
 import React, { useState, useEffect } from 'react'
 import { Image } from 'react-native'
 import DocumentScanner from 'react-native-document-scanner-plugin'
@@ -140,6 +139,7 @@ export default () => {
   )
 }
 ```
+<!-- {% endraw %} -->
 
 <video src="https://user-images.githubusercontent.com/26162804/161643345-6fe15f33-9414-46f5-b5d5-24d88948e801.mp4" data-canonical-src="https://user-images.githubusercontent.com/26162804/161643345-6fe15f33-9414-46f5-b5d5-24d88948e801.mp4" controls="controls" muted="muted" class="d-block rounded-bottom-2 border-top width-fit" style="max-height:640px;"></video>
 
@@ -249,7 +249,8 @@ In that case if you don't request camera permissions you get this error
 
 Here's an example of how to request camera permissions.
 
-```javascript
+<!-- {% raw %} -->
+```jsx
 import React, { useState, useEffect } from 'react'
 import { Platform, PermissionsAndroid, Image, Alert } from 'react-native'
 import DocumentScanner from 'react-native-document-scanner-plugin'
@@ -290,13 +291,4 @@ export default () => {
   )
 }
 ```
-
-## License
-
-Copyright 2021 David Marcus
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+<!-- {% endraw %} -->
