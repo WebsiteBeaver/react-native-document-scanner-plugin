@@ -1,6 +1,6 @@
 {
   "name": "react-native-document-scanner-plugin",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A React Native plugin that lets you scan documents using Android and iOS",
   "main": "./lib/module/index.js",
   "types": "./lib/typescript/src/index.d.ts",
@@ -80,7 +80,6 @@
     "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-jest": "^29.0.1",
     "eslint-plugin-prettier": "^5.2.3",
-    "expo": "^54.0.10",
     "expo-module-scripts": "^5.0.7",
     "jest": "^29.7.0",
     "prettier": "^3.0.3",
@@ -92,14 +91,8 @@
     "typescript": "^5.8.3"
   },
   "peerDependencies": {
-    "expo": ">=54.0.10",
     "react": "*",
     "react-native": "*"
-  },
-  "peerDependenciesMeta": {
-    "expo": {
-      "optional": true
-    }
   },
   "workspaces": [
     "example"
